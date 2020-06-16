@@ -538,3 +538,15 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   /* color: white; */
   text-align: center;
 }
+
+
+.main {
+    width: 80%;
+    max-width: 950px;
+    border: 1px gray solid;
+    margin: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    }
+    
