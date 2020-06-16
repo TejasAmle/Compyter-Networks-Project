@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Computer Science Project</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+
+
+
+        /* Column container */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Create two unequal columns that sits next to each other */
+        /* Sidebar/left column */
+        .side {
+            flex: 20%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        /* Main column */
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        /* Fake image, just for this example */
+        .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Footer */
+
+        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 700px) {
+
+            .row,
+            .navbar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"><h1 style="text-align: center; color: white;">
+        Simulation
+    </h1></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li><a href="./Lightbub.html">Aim</a></li>
+            <li><a href="./theory.html">Theory</a></li>
+            <li><a href="./new.html">Simulation</a></li>
+            <li><a href="./result.html">Result</a></li>
+            <li><a href="./resources.html">Resources Used</a></li>
+
+        </ul>
+    </div>
+
+    <!-- The flexible grid (content) -->
+    <div class="row">
+        <div class="side">
+            <br><br><br>
+            <h2 style="text-align: center;">Applications</h2>
+
+            <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
+            <br><br><br>
+            <img id="myImage" src="assets/images/pic_bulboff.gif"
+                style="padding: 2em; margin-left: 3em;"></img></br></br>
+            <img id="myFan" src="assets/images/fan_off.jpg" style="width: 250px; height: 250px; padding: 2em;"></img>
+            <br>
+            <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+
+
+        </div>
+        <div class="main">
+            <h2 style="text-align: center;">Work Flow</h2>
+            <div>
+                <img src="assets/images/raspberry.png" width="150" height="100" style="margin-left: 2em;"></img>
+            </div>
+
+            <!-- <div>
+                <img src="assets/images/wifi.jpg" width="200" heigh="200" style="margin-top: 6em; margin-left: 23em;" ></img> 
+            </div>
+
+            <div class="container" style="position: fixed; margin-left: 52em;  ">
+                <img src="assets/images/phone.png" width="200" heigh="400" ></img>
+                <button class="btn" onclick="changeBulb()" style="top: 40%;">Bulb</button>
+                <button class="btn" onclick="changeFan()" style="top: 55%;">Fan</button>
+            </div> -->
+
+
+            <div class="row">
+
+                <div id="arrow1" class="column" style="position: fixed; margin-left: 23em; top: 25em;">
+                    <img src="assets/images/arrow1.png" width="100" height="50"></img>
+                </div>
+
+                <div class="column">
+                    <img src="assets/images/wifi.jpg" width="180" heigh="180"
+                        style="margin-top: 6em; margin-left: 23em;"></img>
+                </div>
+
+                <div id="arrow" class="column" style="position: fixed; margin-left: 53em; top: 25em;">
+                    <img src="assets/images/arrow.png" width="100" height="50"></img>
+                </div>
+                
+
+                <div class="column container" style="position: fixed; margin-left: 52em;  ">
+                    <img src="assets/images/phone.png" width="220" heigh="440"></img>
+                    <button class="btn" onclick="changeBulb(); myMoveCommon()"
+                        style="top: 40%; left: 22%;">Bulb</button>
+                    <button class="btn" onclick="changeFan(); myMoveCommon()" style="top: 55%; left: 22%;">Fan</button>
+                </div>
+
+                <br>
+
+            </div>
+        </div>
+
+
+
+
+        <script>
+            function changeBulb() {
+                setTimeout(function () {
+                    var image = document.getElementById('myImage');
+                    if (image.src.match("bulbon")) {
+
+                        image.src = "assets/images/pic_bulboff.gif";
+
+                    } else {
+
+                        image.src = "assets/images/pic_bulbon.gif";
+
+                    }
+                }, 5800);
+
+            }
+        </script>
+
+        <script>
+            function changeFan() {
+                setTimeout(function () {
+                    var image = document.getElementById('myFan');
+                    if (image.src.match("fan_on")) {
+                        image.src = "assets/images/fan_off.jpg";
+                    } else {
+                        image.src = "assets/images/fan_on.gif";
+                    }
+                }, 5800);
+
+            }
+        </script>
+
+        <script>
+            
+
+            function myMoveCommon() {
+                var elem = document.getElementById("arrow");
+                var pos = 350;
+                var id = setInterval(frame, 10);
+
+                function frame() {
+                    if (pos == 0) {
+                        clearInterval(id);
+                        setTimeout(() => {
+                            
+                            myMoveCommonUp()
+                            
+                        }, 100);
+                        document.getElementById("arrow").style.visibility = "hidden";
+                    } else {
+                        pos--;
+                        //  elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                    }
+                    // setTimeout(function(){myMoveCommonUp()}, 3000);
+                }
+            }
+        </script>
+
+
+        <script>
+            function myMoveBulb() {
+                var elem = document.getElementById("arrow");
+                var pos = 350;
+                var id = setInterval(frame, 10);
+
+                function frame() {
+                    if (pos == 0) {
+                        clearInterval(id);
+                    } else {
+                        pos--;
+                        // elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                    }
+                }
+            }
+        </script>
+
+        <script>
+            function myMoveFan() {
+                var elem = document.getElementById("arrow");
+                var pos = 0;
+                var id = setInterval(frame, 10);
+
+                function frame() {
+                    if (pos == 650) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        // elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                    }
+                }
+            }
+        </script>
+
+
+
+        <script>
+            function myMoveCommonUp() {
+                
+                document.getElementById("arrow1").style.visibility = "visible";
+                var elem = document.getElementById("arrow1");
+                var pos = 350;
+                var id = setInterval(frame, 10);
+
+                function frame() {
+                    if (pos == 140) {
+                        clearInterval(id);
+                    } else {
+                        pos--;
+                        elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                    }
+                }
+            }
+        </script>
+
+</body>
+
+</html>

@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Computer Science Project</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
 <body>
 
-    <img id="myImage" style="margin: auto; justify-self: center;"  src="pic_bulboff.gif" width="100" height="180">
-    <button onclick="changeImage()">BUTTON</button>
 
-    <p>Click the light bulb to turn on/off the light.</p>
+    <div class="header"><h1 style="text-align: center; color: white;">
+        Computer Networks Project
+    </h1></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li><a href="./Lightbub.html">Aim</a></li>
+            <li><a href="./theory.html">Theory</a></li>
+            <li><a href="./new.html">Simulation</a></li>
+            <li><a href="./result.html">Result</a></li>
+            <li><a href="./resources.html">Resources Used</a></li>
+            
+        </ul>
+    </div>
 
-    <script>
-        function changeImage() {
-            var image = document.getElementById('myImage');
-            if (image.src.match("bulbon")) {
-                image.src = "assets/images/pic_bulboff.gif";
-            } else {
-                image.src = "assets/images/pic_bulbon.gif";
-            }
-        }
-    </script>
+    <!-- <h1 style="text-align: center; margin: 1em ; margin-bottom: 3em; padding-top: 1em;">Computer Networks Project</h1> -->
+
+    <h3 style="padding: 12em; justify-content: center; text-align: center; text-size-adjust: 5em;">
+        The main purpose of our project is to overcome factors such as high cost, inflexibility, poor management, achieve security and by incorporating all such things design a distributed home automation system
+    </h3>
+
+    
 
 </body>
 

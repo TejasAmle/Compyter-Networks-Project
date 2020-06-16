@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    #myContainer {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+    }
+
+    #myAnimation {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Computer Science Project</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <h1 style="text-align: center; margin: 1em ; margin-bottom: 3em; padding-top: 1em;">Simulation</h1>
+
+    <div class="row">
+        <div class="side">
+
+            <ul>
+                <img id="myImage" style="margin: 7em; justify-self: center;" src="assets/images/pic_bulboff.gif"
+                    width="100" height="180">
+            </ul>
+            <ul>
+                <img id="myFan" style="margin: 4.2em; justify-self: center;" src="assets/images/fan_off.jpg" width="200"
+                    height="200">
+            </ul>
+        </div>
+
+        <div class="side">
+            <img src="assets/images/wifi.jpg" width="100" height="100">
+        </div>
+
+    </div>
+    <div class="container" style="margin-left: 70em;">
+        <img src="assets/images/phone.png" width="100" heigh="200"></img>
+        <button class="btn">Button</button>
+    </div>
+
+
+<div>
+    <button onclick="changeBulb(); myMove()">BULB</button>
+    <button onclick="changeFan()">FAN</button>
+</div>
+
+
+
+    <div id="">
+        <div id="arrow" style="position: absolute;">
+            <img src="assets/images/arrow.png" width="100" height="50"></img>
+        </div>
+
+    </div>
+
+    <script>
+        function myMove() {
+            var elem = document.getElementById("arrow");
+            var pos = 0;
+            var id = setInterval(frame, 10);
+
+            function frame() {
+                if (pos == 650) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    // elem.style.top = pos + 'px';
+                    elem.style.left = pos + 'px';
+                }
+            }
+        }
+    </script>
+
+    <script>
+        function changeBulb() {
+            var image = document.getElementById('myImage');
+            if (image.src.match("bulbon")) {
+                image.src = "assets/images/pic_bulboff.gif";
+            } else {
+                image.src = "assets/images/pic_bulbon.gif";
+            }
+        }
+    </script>
+
+    <script>
+        function changeFan() {
+            var image = document.getElementById('myFan');
+            if (image.src.match("fan_on")) {
+                image.src = "assets/images/fan_off.jpg";
+            } else {
+                image.src = "assets/images/fan_on.gif";
+            }
+        }
+    </script>
+</body>
+
+</html>
