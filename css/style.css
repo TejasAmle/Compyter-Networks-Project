@@ -526,3 +526,15 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     clear: both;
     display: table;
   }
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #D4D4D5;
+  /* color: white; */
+  text-align: center;
+}
